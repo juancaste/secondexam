@@ -1,37 +1,59 @@
-import React from 'react';
-import MapView from 'react-native-maps';
-import { Modal } from 'react-native-web';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
+import Map from './components/Map';
+import Modal from './components/Modal';
+import Input from './components/Input';
+import List from './components/List';
+//import { Map, Panel, Modal } from './components'
 
 export default function App() {
+ const [ puntos, setPuntos ] = useState([])
+ const [ puntoTem, setPuntoTem ] = useState({})
+ const [ nombre, setNombre ] = useState('')
+ const [ visibilityFilter, setVisibilityFilter ] = useState('new_puntos')
+ const [ visibility, setVisibility ] = useState(false)
+ const [ pointsFilter, setPointsFilter ] = useState(true)
+
+ const togglePointsFilter = () => setPointsFilter(!pointsFilter)
+ const handleLongPress = ({ nativeEvent }) => {
+    setVisibilityFilter('new_puntos')
+    setPuntoTem(nativeEvent.coordinate)
+    setVisibility(true)
+ }
+
+ const handleSubmit = () => {
+  const newPunto = { coordinate: puntoTem, name: nombre };
+  setPuntos(puntos.concat(newPunto))
+  setVisibility(false)
+  setNombre('')
+ }
+
+  const handleLista = () => {
+    setVisibilityFilter('all_puntos')
+    setVisibility(true)
+  }
+ 
   return (
     <View style={styles.container}>
-      <Map />
-      <Modal />
-
+      <Map onLongPress={handleLongPress} puntos={puntos} pointsFilter={pointsFilter} />
+      <Panel onPressLeft={handleLista} textleft='Lista' togglePointsFilter={togglePointsFilter} />
+      <Modal visibility={visibility}>
+        { visibilityFilter === 'new_puntos'
+          ?
+          <View style={styles.form}>
+            <Input tittle='Nombre' placeholder='Nombre del punto' onChangeText={handleChangeText} />
+            <Button title='Aceptar' onPress={handleSubmit}/>
+          </View>
+          : <List puntos={puntos} closeModal={() => setVisibility(false)} />
+        }
+      </Modal>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalView: {
-    backgroundColor: '#fff',
-    borderRadius: 4,
-    padding: 20,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    }
-  },
-  map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+  form: {
+    padding: 15,
   },
   container: {
     flex: 1,
