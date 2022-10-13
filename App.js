@@ -49,7 +49,7 @@ export default function App() {
           ?
           <View style={styles.form}>
             <Input tittle='Nombre' placeholder='Nombre del punto' onChangeText={handleChangeText} />
-            <Button title='Aceptar' onPress={handleSubmit}/>
+            <Button title="Aceptar" onPress={handleSubmit}/>
           </View>
           : <List puntos={puntos} closeModal={() => setVisibility(false)} />
         }
