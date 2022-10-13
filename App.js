@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
 import Map from './components/Map';
+import Panel from './components/Panel';
 import Modal from './components/Modal';
 import Input from './components/Input';
 import List from './components/List';
