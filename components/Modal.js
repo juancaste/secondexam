@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { StyleSheet, Dimensions, Modal, View, Text } from 'react-native';
 
 export default () => {
@@ -9,8 +9,8 @@ export default () => {
           visible={false}
         >
          <View style={styles.center}>
-           <View style={ styles.modalView }>
-             <Text>Soy el modal</Text>
+           <View style={styles.modalView}>
+             {children}
             </View>
          </View>   
     </Modal>

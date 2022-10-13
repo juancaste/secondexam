@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, Dimensions } from "react-native";
 import MapView from "react-native-maps";
-import { styleProps } from "react-native-web/dist/cjs/modules/forwardedProps";
 
 export default ({ onLongPress }) => {
     return (
