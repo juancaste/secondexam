@@ -22,6 +22,10 @@ export default function App() {
     setVisibility(true)
  }
 
+ const handleChangeText = text => {
+  setNombre(text)
+ }
+
  const handleSubmit = () => {
   const newPunto = { coordinate: puntoTem, name: nombre };
   setPuntos(puntos.concat(newPunto))
@@ -34,6 +38,8 @@ export default function App() {
     setVisibility(true)
   }
  
+  console.log(puntos);
+
   return (
     <View style={styles.container}>
       <Map onLongPress={handleLongPress} puntos={puntos} pointsFilter={pointsFilter} />
