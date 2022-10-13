@@ -7,20 +7,20 @@ export default ({ puntos }) => {
             <View style={styles.list}>
              <FlatList
                 data={puntos.map(x => x.name)}
-                renderItem={({item}) => <Text>{item}</Text>}
+                renderItem={({item}) => <Text style={styles.Item}>{item}</Text>}
                 keyExtractor={item => item}
 
              />
             </View>
             <View>
-                <Button title='Cerrar' />
+                <Button title='Cerrar' onPress={closeModal} />
             </View>
         </>
     )
 }
 
 const styles = StyleSheet.create ({
-    Button:{
+    Button: {
         paddingBottom: 15,
     },
     list: {
