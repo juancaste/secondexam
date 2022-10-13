@@ -4,8 +4,8 @@ import { StyleSheet, Dimensions, Button, View } from "react-native";
 export default ({ onPressLeft, textLeft, togglePointsFilter }) => {
     return (
         <View style={styles.panel}>
-            <Button onPress={onPressLeft} title={textLeft} />
-            <Button title="Mostrar/Ocultar" onPress={togglePointsFilter} />
+            <Button onPress={onPressLeft} title={textLeft} ></Button>
+            <Button title="Mostrar/Ocultar" onPress={togglePointsFilter}></Button>
         </View>
     )
 }

@@ -12,7 +12,7 @@ export default ({ puntos, closeModal }) => {
              />
             </View>
             <View style={styles.button}>
-                <Button title="Cerrar" onPress={closeModal} />
+                <Button title="Cerrar" onPress={closeModal}></Button>
             </View>
         </>
     )
