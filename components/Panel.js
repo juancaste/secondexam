@@ -5,7 +5,7 @@ export default ({ onPressLeft, textLeft, togglePointsFilter }) => {
     return (
         <View style={styles.panel}>
             <Button onPress={onPressLeft} title={textLeft} />
-            <Button title='Mostrar/Ocultar' onPress={togglePointsFilter} />
+            <Button title="Mostrar/Ocultar" onPress={togglePointsFilter} />
         </View>
     )
 }
