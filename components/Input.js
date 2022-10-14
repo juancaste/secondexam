@@ -5,7 +5,7 @@ export default ({ title, ...rest }) => {
     return (
         <View style={styles.wrapper}>
             <Text>{title}</Text>
-            <TextInput {...rest }/>
+            <TextInput {...rest}/>
         </View>
     )
 }

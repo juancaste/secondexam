@@ -27,7 +27,7 @@ export default function App() {
  }
 
  const handleSubmit = () => {
-  const newPunto = { coordinate: puntoTem, name: nombre };
+  const newPunto = {coordinate: puntoTem, name: nombre};
   setPuntos(puntos.concat(newPunto))
   setVisibility(false)
   setNombre('')
@@ -43,13 +43,14 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Map onLongPress={handleLongPress} puntos={puntos} pointsFilter={pointsFilter} />
-      <Panel onPressLeft={handleLista} textleft='Lista' togglePointsFilter={togglePointsFilter} />
+      <Panel onPressLeft={handleLista} textLetf='Lista' togglePointsFilter={togglePointsFilter} />
       <Modal visibility={visibility}>
         { visibilityFilter === 'new_puntos'
           ?
           <View style={styles.form}>
-            <Input tittle='Nombre' placeholder='Nombre del punto' onChangeText={handleChangeText} />
-            <Button title="Aceptar" onPress={handleSubmit}/>
+            <Input title="Nombre" placeholder='Nombre del punto' onChangeText={handleChangeText} />
+            <Button title="Aceptar" onPress={handleSubmit}>
+            </Button>
           </View>
           : <List puntos={puntos} closeModal={() => setVisibility(false)} />
         }

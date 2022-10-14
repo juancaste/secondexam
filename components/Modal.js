@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     },
     modalView: {
         minWidth: Dimensions.get('window').width - 100,
-        background: '#fff',
+        backgroundColor: '#fff',
         borderRadius: 4,
         padding: 0,
         shadowColor: '#000',
