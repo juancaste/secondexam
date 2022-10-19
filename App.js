@@ -48,7 +48,7 @@ export default function App() {
         { visibilityFilter === 'new_puntos'
           ?
           <View style={styles.form}>
-            <Input title="Nombre (No caracteres, no numeros)" placeholder='Nombre del punto' onChangeText={handleChangeText} required type="text" />
+            <Input title="Nombre " placeholder='Nombre del punto' onChangeText={handleChangeText} required type="text" />
             <Button title="Aceptar" onPress={handleSubmit}>
             </Button>
           </View>
