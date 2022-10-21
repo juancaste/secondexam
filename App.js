@@ -5,7 +5,6 @@ import Panel from './components/Panel';
 import Modal from './components/Modal';
 import Input from './components/Input';
 import List from './components/List';
-//import { Map, Panel, Modal } from './components'
 
 export default function App() {
  const [ puntos, setPuntos ] = useState([])
@@ -16,6 +15,7 @@ export default function App() {
  const [ pointsFilter, setPointsFilter ] = useState(true)
 
  const togglePointsFilter = () => setPointsFilter(!pointsFilter)
+
  const handleLongPress = ({ nativeEvent }) => {
     setVisibilityFilter('new_puntos')
     setPuntoTem(nativeEvent.coordinate)
@@ -48,7 +48,7 @@ export default function App() {
         { visibilityFilter === 'new_puntos'
           ?
           <View style={styles.form}>
-            <Input title="Nombre " placeholder='Nombre del punto' onChangeText={handleChangeText} required type="text" />
+            <Input title="Nombre " placeholder='Nombre del punto' onChangeText={handleChangeText} required type="text" id="letters-only" pattern="[a-zA-Z]*"  />
             <Button title="Aceptar" onPress={handleSubmit}>
             </Button>
           </View>
